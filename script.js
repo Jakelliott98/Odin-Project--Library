@@ -1,3 +1,6 @@
+const libraryTable = document.getElementById('libraryTable');
+const tableBody = document.getElementById('tableBody');
+
 const myLibrary = [];
 
 function Book(title, author){
@@ -10,12 +13,15 @@ Book.prototype.addBookToLibrary = function(){
     myLibrary.push(this);
 };
 
+function createTableRow(title, author, read){
+    let newRow = document.createElement('tr');
+    tableBody.appendChild(newRow);
+    for (let i = 0; i < 3; i++){
+        let tableCell = document.createElement('td');
+        newRow.appendChild(tableCell);
+    }
+}
 
-const book1 = new Book('Harry Potter', 'Jake');
-const book2 = new Book('Alchemist', 'Mesh');
-
-book1.addBookToLibrary();
-console.log(myLibrary);
-
-// Trying to add a book into the library array
-// Pushing the product of the object constructor rather than the construcor itself.
+createTableRow();
+createTableRow();
+createTableRow();
