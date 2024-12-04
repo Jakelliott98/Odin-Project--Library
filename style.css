@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    background-color: #F9EFDC;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+th, td {
+    width: 30vw;
+    min-width: 125px;
+    height: 10vh;
+    text-align: left;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+th {
+    background-color: #F6E7CB;
+}
+
+td {
+    background-color: #FCF7EE;
+}
