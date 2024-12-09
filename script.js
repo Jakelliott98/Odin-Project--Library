@@ -15,21 +15,39 @@ Book.prototype.addBookToLibrary = function(){
 
 function displayBook(){
     for (let i = 0; i < myLibrary.length; i++){
-        console.log('First loop' + i)
         let newRow = document.createElement('tr');
         tableBody.appendChild(newRow);
         for (let j = 0; j < 3; j++){
-            console.log('second loop' + j)
             let tableCell = document.createElement('td');
             newRow.appendChild(tableCell);
         };
     };
 };
 
-const book1 = new Book('Alchemist', 'JE');
-const book2 = new Book('Ikagia', "Hn");
-const book3 = new Book('Example 3', 'JEJE')
-const book4 = new Book('example2', 'je');
+
+function displayBook(){
+    myLibrary.forEach((item) => {
+        let newRow = document.createElement('tr');
+        tableBody.appendChild(newRow);
+        const titleCell = document.createElement('td');
+        const authorCell = document.createElement('td');
+        const readCell = document.createElement('td');
+        newRow.appendChild(titleCell);
+        newRow.appendChild(authorCell);
+        newRow.appendChild(readCell);
+
+        titleCell.innerHTML = item.title;
+        authorCell.innerHTML = item.author;
+        readCell.innerHTML = item.innerHTML; 
+    });
+};
+
+
+
+const book1 = new Book('Alchemist', 'Paulo Coelho');
+const book2 = new Book('Bounce', "Mathew Syed");
+const book3 = new Book('The Tuesday Murder Club', 'Richard Osman')
+const book4 = new Book('Good to go', 'Christie Aschwanden');
 
 book1.addBookToLibrary();
 book2.addBookToLibrary();
