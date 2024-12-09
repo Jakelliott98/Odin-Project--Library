@@ -20,17 +20,6 @@ Book.prototype.addBookToLibrary = function(){
 };
 
 function displayBook(){
-    for (let i = 0; i < myLibrary.length; i++){
-        let newRow = document.createElement('tr');
-        tableBody.appendChild(newRow);
-        for (let j = 0; j < 3; j++){
-            let tableCell = document.createElement('td');
-            newRow.appendChild(tableCell);
-        };
-    };
-};
-
-function displayBook(){
     myLibrary.forEach((item) => {
         let newRow = document.createElement('tr');
         tableBody.appendChild(newRow);
@@ -53,6 +42,7 @@ function displayBook(){
     });
 };
 
+
 addButton.addEventListener('click', () => {
     dialog.showModal();
 });
@@ -63,7 +53,13 @@ closeDialog.addEventListener('click', () => {
 
 submitBookInput.addEventListener('click',(event) => {
     event.preventDefault();
+    const bookExample = new Book(bookTitleInput.value , bookAuthorInput.value);
+    console.log(bookExample);
+    bookExample.addBookToLibrary();
+    dialog.close();
 })
+
+// Manage to add the eventListener to add the book to the library but then the library is not displaying the new book into the html display.
 
 const book1 = new Book('Alchemist', 'Paulo Coelho');
 const book2 = new Book('Bounce', "Mathew Syed");
