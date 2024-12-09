@@ -1,5 +1,11 @@
 const libraryTable = document.getElementById('libraryTable');
 const tableBody = document.getElementById('tableBody');
+const addButton = document.getElementById('addButton');
+const dialog = document.querySelector('dialog');
+const closeDialog = document.getElementById('closeDialog');
+const bookTitleInput = document.getElementById('bookTitle');
+const bookAuthorInput = document.getElementById('bookAuthor');
+const submitBookInput = document.querySelector('dialog form button');
 
 const myLibrary = [];
 
@@ -24,7 +30,6 @@ function displayBook(){
     };
 };
 
-
 function displayBook(){
     myLibrary.forEach((item) => {
         let newRow = document.createElement('tr');
@@ -38,11 +43,27 @@ function displayBook(){
 
         titleCell.innerHTML = item.title;
         authorCell.innerHTML = item.author;
-        readCell.innerHTML = item.innerHTML; 
+        if( item.read === false){
+            readCell.innerHTML = 'No';
+            readCell.style.backgroundColor = '#F9C8D0';
+        } else {
+            readCell.innerHTML = 'Yes';
+            readCell.style.backgroundColor = '#D3FFC2';
+        }
     });
 };
 
+addButton.addEventListener('click', () => {
+    dialog.showModal();
+});
 
+closeDialog.addEventListener('click', () => {
+    dialog.close();
+})
+
+submitBookInput.addEventListener('click',(event) => {
+    event.preventDefault();
+})
 
 const book1 = new Book('Alchemist', 'Paulo Coelho');
 const book2 = new Book('Bounce', "Mathew Syed");
