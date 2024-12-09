@@ -24,13 +24,21 @@ function displayBook(){
     myLibrary.forEach((item) => {
         let newRow = document.createElement('tr');
         tableBody.appendChild(newRow);
+
         const titleCell = document.createElement('td');
         const authorCell = document.createElement('td');
         const readCell = document.createElement('td');
+        const readButton = document.createElement('button');
+        const deleteButton = document.createElement('button');
+
         newRow.appendChild(titleCell);
         newRow.appendChild(authorCell);
         newRow.appendChild(readCell);
+        newRow.appendChild(readButton);
+        newRow.appendChild(deleteButton);
 
+        deleteButton.innerHTML = 'Delete';
+        readButton.innerHTML = 'Read';
         titleCell.innerHTML = item.title;
         authorCell.innerHTML = item.author;
         if( item.read === false){
@@ -39,7 +47,8 @@ function displayBook(){
         } else {
             readCell.innerHTML = 'Yes';
             readCell.style.backgroundColor = '#D3FFC2';
-        }
+        };
+        
     });
 };
 
