@@ -11,6 +11,10 @@ body {
     background-color: #F9EFDC;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -44,6 +48,7 @@ td {
     padding: 20px 40px;
 }
 
-.addButton:hover {
-    cursor: pointer;
+.readButton, .deleteButton {
+    margin-top: 5px;
+    padding: 5px 10px;
 }

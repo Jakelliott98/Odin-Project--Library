@@ -30,6 +30,8 @@ function displayBook(){
         const readCell = document.createElement('td');
         const readButton = document.createElement('button');
         const deleteButton = document.createElement('button');
+        readButton.className = 'readButton';
+        deleteButton.className = 'deleteButton';
 
         newRow.appendChild(titleCell);
         newRow.appendChild(authorCell);
