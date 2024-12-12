@@ -45,6 +45,7 @@ function displayBook(){
         readButton.innerHTML = 'Read';
         titleCell.innerHTML = item.title;
         authorCell.innerHTML = item.author;
+        
         if( item.read === false){
             readCell.innerHTML = 'No';
             readCell.style.backgroundColor = '#F9C8D0';
@@ -60,6 +61,21 @@ function displayBook(){
                 console.log(myLibrary);
             }
             // ERROR -> Only working for the first delete. Additionally, the top 3 books not deleting from library. Additionally, the display isnt being effected yet.
+        })
+
+        readButton.addEventListener('click', () => {
+            let readIndex = myLibrary.findIndex((element) => element.title === readButton.value);
+            if (myLibrary[readIndex].read === false){
+                readButton.innerHTML = 'Unread';
+                myLibrary[readIndex].read = true;
+                readCell.innerHTML = 'Yes';
+                readCell.style.backgroundColor = '#D3FFC2';
+            } else {
+                readButton.innerHTML = 'Read';
+                myLibrary[readIndex].read = false;
+                readCell.innerHTML = 'No';
+                readCell.style.backgroundColor = '#F9C8D0';
+            }
         })
 
     });
