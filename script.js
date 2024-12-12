@@ -23,6 +23,7 @@ function displayBook(){
     tableBody.innerHTML = '';
     myLibrary.forEach((item) => {
         let newRow = document.createElement('tr');
+        newRow.setAttribute('id', `${item.author}`);
         tableBody.appendChild(newRow);
 
         const titleCell = document.createElement('td');
@@ -58,10 +59,10 @@ function displayBook(){
             if (deleteButton.value === item.title){
                 let index = myLibrary.findIndex((element) => element.title === deleteButton.value);
                 myLibrary.splice(index);
-                console.log(myLibrary);
+                let currentNode = document.getElementById(item.author);
+                tableBody.removeChild(currentNode);
             }
-            // ERROR -> Only working for the first delete. Additionally, the top 3 books not deleting from library. Additionally, the display isnt being effected yet.
-        })
+        });
 
         readButton.addEventListener('click', () => {
             let readIndex = myLibrary.findIndex((element) => element.title === readButton.value);
@@ -96,10 +97,6 @@ submitBookInput.addEventListener('click',(event) => {
     dialog.close();
     displayBook();
 });
-
-
-// Add event listener to delete a book from the library. Add a value to the delete buttons when created to link to the type of book.
-
 
 const book1 = new Book('Alchemist', 'Paulo Coelho');
 const book2 = new Book('Bounce', "Mathew Syed");
